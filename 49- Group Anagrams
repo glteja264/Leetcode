@@ -1,0 +1,10 @@
+class Solution:
+    
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        resultdict=defaultdict(list)
+        for s in strs:
+            zerolist=[0]*26
+            for eachelement in s:
+                zerolist[ord(eachelement)-ord('a')]+=1
+            resultdict[tuple(zerolist)].append(s)
+        return list(resultdict.values())
