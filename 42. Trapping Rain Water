@@ -1,0 +1,21 @@
+class Solution:
+    def trap(self, h: List[int]) -> int:
+        if not h:
+            return 0
+        lmax=h[0]
+        rmax=h[-1]
+        l=0
+        r=len(h)-1
+        res=0
+
+        while l<r:
+            if lmax<=rmax:
+                l+=1
+                lmax=max(lmax,h[l])
+                res=res+lmax-h[l]
+            else:
+            
+                r-=1
+                rmax=max(rmax,h[r])
+                res=res+rmax-h[r]
+        return res
